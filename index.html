@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>متجري الإلكتروني</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>متجري الإلكتروني</h1>
+    <nav>
+      <a href="index.html">الرئيسية</a>
+      <a href="categories.html">التصنيفات</a>
+      <a href="cart.html">سلة التسوق</a>
+      <a href="about.html">من نحن</a>
+      <a href="contact.html">تواصل معنا</a>
+      <a href="login.html" id="loginLink">تسجيل الدخول</a>
+    </nav>
+    <form onsubmit="searchProducts(event)" class="search-bar">
+      <input type="text" id="searchInput" placeholder="ابحث عن منتجات...">
+      <button type="submit"><i class="fas fa-search"></i></button>
+    </form>
+  </header>
+
+  <section class="hero">
+    <img src="عربة التسوق.jpeg" alt="صورة ترويجية" class="hero-image">
+    <div class="hero-text">
+      <h2>أهلاً بك في أفضل متجر إلكتروني</h2>
+      <p>استمتع بأفضل العروض والمنتجات الآن</p>
+    </div>
+  </section>
+
+  <main>
+    <h2>منتجات مختارة</h2>
+    <div class="product-grid">
+      <div class="product">
+        <img src="laptop.jpeg" alt="لاب توب" class="product-image">
+        <h3>لاب توب</h3>
+        <p>لاب توب عالي الجودة</p>
+        <p>السعر: 1000$</p>
+        <button onclick="addToCart('لاب توب', 1000)">أضف للسلة</button>
+      </div>
+      <div class="product">
+        <img src="معطف.jpeg" alt="معطف" class="product-image">
+        <h3>معطف رجالي</h3>
+        <p>معطف أنيق للشتاء</p>
+        <p>السعر: 75$</p>
+        <button onclick="addToCart('معطف رجالي', 75)">أضف للسلة</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 متجري الإلكتروني. جميع الحقوق محفوظة.</p>
+  </footer>
+
+  <script src="script.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93cba6da3a0badb3',t:'MTc0NjczNTU2My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
