@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المنتج - متجري الإلكتروني</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>منتج مميز</h1>
+    <nav>
+      <a href="index.html">الرئيسية</a>
+      <a href="categories.html">التصنيفات</a>
+      <a href="cart.html">سلة التسوق</a>
+      <a href="about.html">من نحن</a>
+      <a href="contact.html">تواصل معنا</a>
+      <a href="login.html" id="loginLink">تسجيل الدخول</a>
+    </nav>
+  </header>
+
+  <main>
+    <div id="product-container">
+      <!-- Products will be loaded here based on category -->
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    // Get the category from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
+    
+    // Define products for each category
+    const products = {
+      electronics: {
+        name: "لاب توب",
+        image: "laptop.jpeg",
+        description: "لاب توب عالي الأداء",
+        price: 999.99
+      },
+      clothing: {
+        name: "معطف",
+        image: "معطف.jpeg",
+        description: "معطف شتوي أنيق",
+        price: 49.99
+      },
+      home: {
+        name: "أواني",
+        image: "أواني.jpeg",
+        description: "مجموعة أواني مطبخية",
+        price: 29.99
+      },
+      books: {
+        name: "كتاب",
+        image: "computer hardware.jpeg",
+        description: "كتاب تعليمي",
+        price: 14.99
+      }
+    };
+    
+    // Display the appropriate product
+    function displayProduct() {
+      const container = document.getElementById('product-container');
+      let product;
+      
+      if (category && products[category]) {
+        product = products[category];
+      } else {
+        // Default product if no category specified
+        product = products.electronics;
+      }
+      
+      container.innerHTML = `
+        <div class="product">
+          <img src="${product.image}" alt="${product.name}" class="product-image">
+          <h3>${product.name}</h3>
+          <p>وصف المنتج: ${product.description}</p>
+          <p>السعر: ${product.price}$</p>
+          <button class="add-to-cart" data-name="${product.name}" data-price="${product.price}">أضف إلى السلة</button>
+        </div>
+      `;
+      
+      // Add event listener to the button
+      document.querySelector('.add-to-cart').addEventListener('click', function() {
+        addToCart(this.dataset.name, parseFloat(this.dataset.price));
+      });
+    }
+    
+    // Call the function when page loads
+    window.onload = displayProduct;
+  </script>
+</body>
+</html>
